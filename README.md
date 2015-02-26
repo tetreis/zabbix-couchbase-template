@@ -1,14 +1,14 @@
 [] Introduction
 =====
 
-This is a fork of the original https://github.com/myaaaaa-chan/zabbix-couchbase-template
+This is a fork from the original https://github.com/myaaaaa-chan/zabbix-couchbase-template
 
 It initially contains the translation of instructions to English, plus tips and tricks on configuration.
 
 Note: Make sure you have Zabbix ports set up between client and server. Refer to the official documentation if you need help.
 
 
-[] Step 1: The Zabbix Couchbase template
+[] Step 1: Import the Zabbix Couchbase template
 =====
 
 The Zabbix Couchbase template is the Couchbase monitoring model for Zabbix.
@@ -50,29 +50,24 @@ And restart the zabbix-agent
 [] Step 3: Add Couchbase monitoring to the Host
 =====
 
+On Zabbix server web interface, go to Configuration > Hosts and click on the Name of the Couchbase instance you want to monitor (this guide doesn't cover basic addition of servers to Couchbase).
 
+Go to Macros tab, and add the following entries:
 
-  
-**3.テンプレートのインポート**
+    {$USERNAME}     -> Your Couchbase admin user
+    {$PASSWORD}     -> Your Couchbase admin user's password
+    {$BUCKET}       -> The bucket you want to monitor
+    {$HDD_INDEX}    -> The ID of the hard disk (HDD) you want to monitor (Ex: 0)
+    {$SSD_INDEX}    -> The ID of the SSD disk you want to monitor (Ex: 0)
+    
+[] What can I monitor with this?
+=====
 
-Zabbixにzbx_couchbase_templates.xmlをインポートする
-　
+*Note*: This is a translation work in progress.
 
-**4.マクロを設定する**
+Follows a list of the monitoring items covered by this template.
 
-監視対象のホストに以下のマクロを設定する
-
-* {$USERNAME} -> 管理用ログインユーザ名
-* {$PASSWORD} -> 管理用ログインパスワード
-* {$BUCKET} -> 管理対象バケット名
-* {$HDD_INDEX} -> 監視対象HDDインデックス(ex. 0)
-* {$SSD_INDEX} -> 監視対象SSDインデックス(ex. 0)
-
-　
-##Monitoring Items - 監視項目
-
-
-| 名前  | キー  | 内容 |
+| Name | Key | Content |
 |:-----------|:------------|:------------|
 | Bucket item count | cb.bucket.items[{$USERNAME},{$PASSWORD},{$BUCKET}] | バケット内のアイテムの数 |
 | Bucket name | cb.bucket.name[{$USERNAME},{$PASSWORD},{$BUCKET}] | 監視対象バケット名 |
