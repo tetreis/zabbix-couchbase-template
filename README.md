@@ -5,7 +5,10 @@ This is a fork from the original https://github.com/myaaaaa-chan/zabbix-couchbas
 
 It initially contains the translation of instructions to English, plus tips and tricks on configuration.
 
-Note: Make sure you have Zabbix ports set up between client and server. Refer to the official documentation if you need help.
+
+*Note 1*: This is a translation work in progress.
+
+*Note 2*: Make sure you have Zabbix ports set up between client and server. Refer to the official documentation if you need help.
 
 
 [] Step 1: Import the Zabbix Couchbase template
@@ -60,12 +63,8 @@ Go to Macros tab, and add the following entries:
     {$HDD_INDEX}    -> The ID of the hard disk (HDD) you want to monitor (Ex: 0)
     {$SSD_INDEX}    -> The ID of the SSD disk you want to monitor (Ex: 0)
     
-[] What can I monitor with this?
+[] Items I can monitor with this template
 =====
-
-*Note*: This is a translation work in progress.
-
-Follows a list of the monitoring items covered by this template.
 
 | Name | Key | Content |
 |:-----------|:------------|:------------|
@@ -92,9 +91,10 @@ Follows a list of the monitoring items covered by this template.
 | Couchbase running status | net.tcp.listen[11210] | Couchbaseステータス(1:OK,2:NG) |
 
 　
-##Trigger - トリガー
+[] Triggers defined by this template
+=====
 
-| 名前  | 深刻度 | 内容 |
+| Name | Severity | Content |
 |:-----------|:------------|:------------|
 | Lack of free bucket quota warning on server {HOST.NAME} | 警告 | バケットの空き容量が30%未満になった場合に警告 |
 | Lack of free bucket quota on server {HOST.NAME} | 軽度の障害 | バケットの空き容量が10%未満になった場合に警告 |
