@@ -55,11 +55,13 @@ First of all, make sure you have Zabbix ports set up between client and server. 
 
 On Zabbix server web interface, go to Configuration > Hosts and click on the Name of the Couchbase instance you want to monitor (this guide doesn't cover basic addition of servers to Couchbase).
 
+Enter the Templates tab and select the "Template App Couchbase". Click Add. Then Save.
+
 Go to Macros tab, and add the following entries:
 
     {$USERNAME}     -> Your Couchbase admin user
     {$PASSWORD}     -> Your Couchbase admin user's password
-    {$BUCKET}       -> The bucket you want to monitor
+    {$BUCKET}       -> Put 'defaults'
     {$HDD_INDEX}    -> The ID of the hard disk (HDD) you want to monitor (Ex: 0)
     {$SSD_INDEX}    -> The ID of the SSD disk you want to monitor (Ex: 0)
     
