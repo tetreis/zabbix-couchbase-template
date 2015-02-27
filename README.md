@@ -6,9 +6,7 @@ This is a fork from the original https://github.com/myaaaaa-chan/zabbix-couchbas
 It initially contains the translation of instructions to English, plus tips and tricks on configuration.
 
 
-*Note 1*: This is a translation work in progress.
-
-*Note 2*: Make sure you have Zabbix ports set up between client and server. Refer to the official documentation if you need help.
+*Note*: This is a translation work in progress.
 
 
 [] Step 1: Import the Zabbix Couchbase template
@@ -52,6 +50,8 @@ And restart the zabbix-agent
 
 [] Step 3: Add Couchbase monitoring to the Host
 =====
+
+First of all, make sure you have Zabbix ports set up between client and server. You need port 10050 open on client for incoming connections from server. And you need port 10051 open on server for incoming connections from client.
 
 On Zabbix server web interface, go to Configuration > Hosts and click on the Name of the Couchbase instance you want to monitor (this guide doesn't cover basic addition of servers to Couchbase).
 
