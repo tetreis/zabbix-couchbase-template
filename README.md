@@ -65,32 +65,32 @@ Go to Macros tab, and add the following entries:
     {$HDD_INDEX}    -> The ID of the hard disk (HDD) you want to monitor (Ex: 0)
     {$SSD_INDEX}    -> The ID of the SSD disk you want to monitor (Ex: 0)
     
-[] Items I can monitor with this template
+[] Items you can monitor with this template
 =====
 
 | Name | Key | Content |
 |:-----------|:------------|:------------|
-| Bucket item count | cb.bucket.items[{$USERNAME},{$PASSWORD},{$BUCKET}] | バケット内のアイテムの数 |
-| Bucket name | cb.bucket.name[{$USERNAME},{$PASSWORD},{$BUCKET}] | 監視対象バケット名 |
-| Bucket ops | cb.bucket.ops[{$USERNAME},{$PASSWORD},{$BUCKET}] | 監視対象バケットへのOPS |
-| Bucket used(percent) | cb.bucket.quotapercent[{$USERNAME},{$PASSWORD},{$BUCKET}] | バケット使用量(%) |
-| Bucket size | cb.bucket.size[{$USERNAME},{$PASSWORD},{$BUCKET}] | バケットサイズ |
-| Bucket type | cb.bucket.type[{$USERNAME},{$PASSWORD},{$BUCKET}] | バケットタイプ(couchbase or memcache) |
-| Cluster status | cb.cluster.membership[{$USERNAME},{$PASSWORD}] | クラスタステータス(active or not) |
-| Hdd free | cb.hdd.free[{$USERNAME},{$PASSWORD},{$HDD_INDEX}] | HDD空き容量 |
+| Bucket item count | cb.bucket.items[{$USERNAME},{$PASSWORD},{$BUCKET}] | The number of items in the bucket |
+| Bucket name | cb.bucket.name[{$USERNAME},{$PASSWORD},{$BUCKET}] | Name of the monitored bucket |
+| Bucket ops | cb.bucket.ops[{$USERNAME},{$PASSWORD},{$BUCKET}] | OPS to the monitored bucket |
+| Bucket used(percent) | cb.bucket.quotapercent[{$USERNAME},{$PASSWORD},{$BUCKET}] | Bucket usage (%) |
+| Bucket size | cb.bucket.size[{$USERNAME},{$PASSWORD},{$BUCKET}] | Bucket size |
+| Bucket type | cb.bucket.type[{$USERNAME},{$PASSWORD},{$BUCKET}] | Bucket tipe (couchbase or memcache) |
+| Cluster status | cb.cluster.membership[{$USERNAME},{$PASSWORD}] | Cluster status (active or not) |
+| Hdd free | cb.hdd.free[{$USERNAME},{$PASSWORD},{$HDD_INDEX}] | HDD free space |
 | Hdd quota total | cb.hdd.quotatotal[{$USERNAME},{$PASSWORD},{$HDD_INDEX}] | HDD Quota |
-| Hdd total | cb.hdd.total[{$USERNAME},{$PASSWORD},{$HDD_INDEX}] | HDD容量 |
-| Hdd used by data | cb.hdd.usedbydata[{$USERNAME},{$PASSWORD}] | HDD使用量 |
-| Ram quota total | cb.ram.quotatotal[{$USERNAME},{$PASSWORD}] | メモリー quota |
-| Ram quota used | cb.ram.quotaused[{$USERNAME},{$PASSWORD}] | メモリー quota |
-| Ram total | cb.ram.total[{$USERNAME},{$PASSWORD}] | メモリー容量 |
-| Ram used | cb.ram.used[{$USERNAME},{$PASSWORD}] | メモリー使用量 |
-| Data index path on HDD | cb.strage.hdd.indexpath[{$USERNAME},{$PASSWORD},{$HDD_INDEX}] | データベース格納パス |
-| Data index path on HDD | cb.strage.hdd.indexpath[{$USERNAME},{$PASSWORD},{$HDD_INDEX}] | データベースインデックス格納パス |
-| Data path on SSD | cb.strage.ssd.datapath[{$USERNAME},{$PASSWORD},{$SSD_INDEX}] | データベース格納パス |
-| Data index path on SSD | cb.strage.ssd.indexpath[{$USERNAME},{$PASSWORD},{$SSD_INDEX}] | データベースインデックス格納パス |
-| Version of Couchbase running | cb.version[{$USERNAME},{$PASSWORD}] | Couchbaseバージョン |
-| Couchbase running status | net.tcp.listen[11210] | Couchbaseステータス(1:OK,2:NG) |
+| Hdd total | cb.hdd.total[{$USERNAME},{$PASSWORD},{$HDD_INDEX}] | HDD capacity |
+| Hdd used by data | cb.hdd.usedbydata[{$USERNAME},{$PASSWORD}] | HDD usage |
+| Ram quota total | cb.ram.quotatotal[{$USERNAME},{$PASSWORD}] | Memory (quota) |
+| Ram quota used | cb.ram.quotaused[{$USERNAME},{$PASSWORD}] | Memory (quota) |
+| Ram total | cb.ram.total[{$USERNAME},{$PASSWORD}] | Memory capacity |
+| Ram used | cb.ram.used[{$USERNAME},{$PASSWORD}] | Memory usage |
+| Data index path on HDD | cb.strage.hdd.indexpath[{$USERNAME},{$PASSWORD},{$HDD_INDEX}] | Database storage path |
+| Data index path on HDD | cb.strage.hdd.indexpath[{$USERNAME},{$PASSWORD},{$HDD_INDEX}] | Database index storage path |
+| Data path on SSD | cb.strage.ssd.datapath[{$USERNAME},{$PASSWORD},{$SSD_INDEX}] | Database storage path |
+| Data index path on SSD | cb.strage.ssd.indexpath[{$USERNAME},{$PASSWORD},{$SSD_INDEX}] | Database index storage path |
+| Version of Couchbase running | cb.version[{$USERNAME},{$PASSWORD}] | Couchbase version |
+| Couchbase running status | net.tcp.listen[11210] | Couchbase status (1:OK,2:NG) |
 
 　
 [] Triggers defined by this template
@@ -98,8 +98,8 @@ Go to Macros tab, and add the following entries:
 
 | Name | Severity | Content |
 |:-----------|:------------|:------------|
-| Lack of free bucket quota warning on server {HOST.NAME} | 警告 | バケットの空き容量が30%未満になった場合に警告 |
-| Lack of free bucket quota on server {HOST.NAME} | 軽度の障害 | バケットの空き容量が10%未満になった場合に警告 |
-| Couchbase status is not healthy | 重度の障害 | ステータスがhelthy以外になったら警告 |
-| Couchbase process is not running. | 致命的な障害 | tcp:11210にアクセスできなくなったら警告 |
+| Lack of free bucket quota warning on server {HOST.NAME} | Warning | Warn if the free space of the bucket is less than 30% |
+| Lack of free bucket quota on server {HOST.NAME} | Warning | Warn If the free space of the bucket is less than 10% |
+| Couchbase status is not healthy | Critical | Alert when the status is other than helthy |
+| Couchbase process is not running. | Critical | Alert when TCP port 11210 is no longer accessible |
 　
