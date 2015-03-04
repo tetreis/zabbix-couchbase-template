@@ -6,9 +6,6 @@ This is a fork from the original https://github.com/myaaaaa-chan/zabbix-couchbas
 It initially contains the translation of instructions to English, plus tips and tricks on configuration.
 
 
-*Note*: This is a translation work in progress.
-
-
 [] Step 1: Import the Zabbix Couchbase template
 =====
 
